@@ -1,0 +1,25 @@
+pipeline{
+    agent any
+    
+
+    stages{
+        stage("Git Checkout"){
+            steps{
+                script{
+                    git 'https://github.com/boorlasiva/jenkinsfile.git'
+                }
+              
+            }
+        }
+
+        stage("mvn Integration Test"){
+            steps{
+              script{
+
+                sh 'mvn UnitTest'
+
+              }
+            }
+        }
+    }
+}
